@@ -1,14 +1,14 @@
 import java.util.Scanner;
 import java.util.Random;
 
-public class Slot_Machine{
-    public static void main() {
+public class Slot_Machine {
+    public static void main(String[] args) {
         double money;
         int rand1, rand2, rand3;
-        char again;
-        do {
+        String again = "y";
+        while (again.equalsIgnoreCase("y")) {
             System.out.println("Enter the amount of money you wish to play with,");
-            System.out.print("the lever will be automatically pulled");
+            System.out.print("the lever will be automatically pulled: $");
             Scanner input = new Scanner(System.in);
             money = input.nextDouble();
             Random randNum = new Random();
@@ -83,11 +83,11 @@ public class Slot_Machine{
                 System.out.println("Congratulations! you won double your money");
             } else if (rand1 == rand2 && rand2 == rand3) {
                 System.out.println("Congratulations! you won thrice your money");
-            } else System.out.println("You lost!, try again");
-            again = input.nextChar();
+            } else
+                System.out.println("You lost!");
+            System.out.println("Try again Y=Yes, N=No");
+            Scanner read = new Scanner(System.in);
+            again = read.nextLine();
         }
-        while(again=='y');
-
-
     }
 }
